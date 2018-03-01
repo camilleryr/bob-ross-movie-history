@@ -2,17 +2,25 @@
 
 <h1>Yay! You tracked a movie!</h1>
 
-<div id="movieGrid" class="container-fluid">
+<div id="trackedMovieGrid" class="container-fluid">
 
     @foreach (var trackedMovie in Model.TrackedUserMovies)
     {
         <div class='row'>
-            <div class="col-md-3 movieGrid__movie" 
+            <div class="col-md-3 movieGrid__movie"
                  id="movie--@Html.DisplayFor(modelItem => trackedMovie.MovieUserId)">
-                
+
                 <h2 class="fakeLink">@Html.DisplayFor(modelItem => trackedMovie.Title)</h2>
-                <img class="fakeLink" 
+                <img class="moviePoster fakeLink"
                      src="https://image.tmdb.org/t/p/w154/@Html.DisplayFor(modelItem => trackedMovie.ImageURL)" />
+                <button id="movieWatchButton--@Html.DisplayFor(modelItem => trackedMovie.MovieUserId)"
+                        class="@(trackedMovie.Watched == true ? "watchedMovieButton-true" : "") watchedMovieButton btn">
+                    &#1421;
+                </button>
+                <button id="movieFavoriteButton--@Html.DisplayFor(modelItem => trackedMovie.MovieUserId)"
+                        class="@(trackedMovie.Favorited == true ? "favoriteMovieButton-true" : "") favoriteMovieButton btn">
+                    &#9733;
+                </button>
             </div>
         </div>
     }

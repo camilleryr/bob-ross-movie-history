@@ -37,3 +37,25 @@
 .fakeLink:hover {
     cursor: pointer;
 }
+
+.moviePoster {
+    display: block;
+}
+
+.favoriteMovieButton-true {
+    color: black !important;
+}
+
+
+.favoriteMovieButton {
+    color: red;
+}
+
+.watchedMovieButton-true {
+    color: black !important;
+}
+
+
+.watchedMovieButton {
+    color: red;
+}

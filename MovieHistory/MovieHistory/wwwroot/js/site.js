@@ -6,6 +6,33 @@
     window.location = `/Movie/Track/?apiId=${movie.id}&title=${movie.title}&img=${movie.poster_path}`
 })
 
+﻿$("#trackedMovieGrid").on("click", evt => {
+
+     var idSplit = evt.target.id.split("--")
+
+     if (idSplit[0] == "movieFavoriteButton")
+     {
+         $(`#${evt.target.id}`).toggleClass("favoriteMovieButton-true")
+
+         $.ajax({
+             method: "POST",
+             url: `../MovieUser/Favorite/${idSplit[1]}`,
+             success: console.log("horray")
+         })
+     }
+
+     if (idSplit[0] == "movieWatchButton") {
+         $(`#${evt.target.id}`).toggleClass("watchedMovieButton-true")
+
+         $.ajax({
+             method: "POST",
+             url: `../MovieUser/Watch/${idSplit[1]}`,
+             success: console.log("horray")
+         })
+     }
+
+})
+
 
 $("#movieSearch__button").click(evt => {
     const userSearchString = $("#movieSearch").val()
